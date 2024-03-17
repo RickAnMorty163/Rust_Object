@@ -1,19 +1,18 @@
-use std::io
 fn main() {
     println!("Hello World");
-    let mut n:u32;
-    io::stdin().read_line(&mut n).expect("Error");
-    println!("fibs={:?}",fibs(n));
+    for val in 1..10 {
+        println!("the {} th fibonacci number is {} ", val, fibs(val));
+    }
 }
 
-fn fibs(n:u32) ->u32{
-    let mut prev_1=0;
-    let mut prev_2=1;
+fn fibs(n: u32) -> u32 {
+    let mut prev_1 = 0;
+    let mut prev_2 = 1;
 
-    for _ in 2..=n {
-        let next = prev_1+prev_2;
+    for _ in 2..n {
+        let mut temp=prev_1+prev_2;
         prev_1=prev_2;
-        prev_2=next;
-    } 
+        prev_2=temp;
+    }
     prev_1
 }
